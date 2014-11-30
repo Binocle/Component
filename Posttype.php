@@ -20,15 +20,15 @@ class Posttype
 	 */
 	public function __construct()
 	{
-		Hook::add('after_setup_theme', array($this, 'registerPosttypes'));
-		Hook::add('pre_get_posts', [$this, 'setDefaultQuery']);
+		\Hook::add('after_setup_theme', array($this, 'registerPosttypes'));
+		\Hook::add('pre_get_posts', [$this, 'setDefaultQuery']);
 	}
 
 	/**
 	 * Add new posttype
 	 * @param string $typeName
 	 */
-	public function add($typeName, $args)
+	public function add($typeName, $args = [])
 	{
 		// set default
 		$args = array_merge_recursive(array(
